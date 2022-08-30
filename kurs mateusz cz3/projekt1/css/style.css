@@ -28,6 +28,7 @@ body {
     background-size: cover;
     border-radius: 15px;
     box-shadow: 5px 5px 10px rgba(0,0,0,.7);
+    overflow: hidden;
 }
 
 .one {
@@ -48,7 +49,12 @@ button {
     color: #fff;
     font-size: 36px;
     text-shadow: 2px 2px 5px rgba(0,0,0);
-    cursor: help;
+    cursor: crosshair;
+    z-index: 10;
+}
+
+button:hover~.text {
+    clip-path: circle(120% at 50% 80%);
 }
 
 .text {
@@ -56,5 +62,23 @@ button {
     flex-direction: column;
     justify-content: flex-end;
     position: absolute;
-
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    padding: 80px 30px;
+    background-color: rgba(0,0,0,.85);
+    color: #fff;
+    clip-path: circle(0% at 50% 80%);
+    transition: clip-path 1s;
 }
+
+h1 {
+    color: rgb(182,179,97);
+}
+
+h2 {
+    margin-bottom: 30px;
+    color: rgb(141,138,138)
+}
+
