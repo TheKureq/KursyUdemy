@@ -18,8 +18,8 @@ html {
 body {
 	background-color: $pure-white;
 	font-family: 'Open Sans', sans-serif;
-	// font-family: 'Dancing Script', cursive;
 	font-size: 1.6rem;
+	font-weight: 300;
 }
 
 // NAV
@@ -71,6 +71,44 @@ body {
 	}
 }
 
+.nav {
+	position: fixed;
+	top: 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
+	width: 100%;
+	background-image: $blue-gradient-solid;
+	z-index: 100;
+
+	&__item {
+		position: relative;
+		display: block;
+		color: $pure-white;
+		margin: 0.5em 0;
+		padding: 0.5em 2em;
+		text-decoration: none;
+
+		&::before {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 3px;
+			height: 100%;
+			transform: scaleY(0);
+			background-color: $pure-white;
+			content: '';
+			transition: transform .3s;
+		}
+
+		&:hover::before {
+			transform: scaleY(1);
+		}
+	}
+	
+}
+
 
 // HEADER
 .header {
@@ -112,4 +150,47 @@ body {
 			background-color: $light-white;
 		}
 	}
+}
+
+
+// ===========================================
+// MEDIA
+// ===========================================
+
+@media(min-width: 768px) {
+	.white-block{
+		height: 50px;
+		width: 45%;
+	}
+
+	.header {
+		&__heading {
+			font-size: 6.6rem;
+		}
+
+		&__text {
+			font-size: 2.2rem;
+		}
+
+		&__btn {
+			font-size: 1.6rem;
+		}
+	}
+}
+
+@media(min-width: 992px) {
+	.burger-btn {
+		top: 50px;
+		right: 50px;
+	}
+
+	.header {
+		background-image: $blue-gradient, url('../img/palm-3172367_1920.jpg');
+		
+		&__heading {
+			font-size: 10rem;
+		}
+	}
+
+	
 }
