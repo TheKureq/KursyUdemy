@@ -40,7 +40,8 @@ body {
 	}
 
 	&:hover {
-		.burger-btn__bars::after,.burger-btn__bars::before {
+		.burger-btn__bars::after,
+		.burger-btn__bars::before {
 			width: 100%;
 		}
 	}
@@ -51,8 +52,10 @@ body {
 		height: 30px;
 	}
 
-	&__bars, &__bars::after, &__bars::before {
-		@include burgerBtn
+	&__bars,
+	&__bars::after,
+	&__bars::before {
+		@include burgerBtn;
 	}
 
 	&__bars {
@@ -66,7 +69,7 @@ body {
 		&::before {
 			top: 27px;
 			width: 30%;
-			transition-delay: .1s;
+			transition-delay: 0.1s;
 		}
 	}
 }
@@ -80,7 +83,7 @@ body {
 	height: 100vh;
 	width: 100%;
 	transform: translateX(100%);
-	transition: .8s cubic-bezier(0.65, 0.05, 0.36, 1);
+	transition: 0.8s cubic-bezier(0.65, 0.05, 0.36, 1);
 	background-image: $blue-gradient-solid;
 	z-index: 100;
 
@@ -105,14 +108,13 @@ body {
 			transform: scaleY(0);
 			background-color: $pure-white;
 			content: '';
-			transition: transform .3s;
+			transition: transform 0.3s;
 		}
 
 		&:hover::before {
 			transform: scaleY(1);
 		}
 	}
-	
 }
 
 @keyframes navItemsAnimation {
@@ -127,7 +129,6 @@ body {
 .nav-items-animation {
 	animation: navItemsAnimation 1s both;
 }
-
 
 // HEADER
 .header {
@@ -165,19 +166,71 @@ body {
 		text-transform: uppercase;
 		cursor: pointer;
 
-		&::before{
+		&::before {
 			background-color: $light-white;
 		}
 	}
 }
 
+// MAIN
+// DREAMS SECTION
+.dreams {
+	&__box {
+		display: flex;
+		flex-direction: column;
+		margin: 2em 0;
+	}
+
+	&__img {
+		width: 100%;
+		margin-bottom: 1em;
+	}
+
+	&__title {
+		margin-bottom: 0.5em;
+	}
+
+	&__text {
+		font-size: 1.4rem;
+	}
+}
 
 // ===========================================
 // MEDIA
 // ===========================================
 
-@media(min-width: 768px) {
-	.white-block{
+@media (min-width: 576px) {
+	.dreams {
+		&__box {
+			flex-direction: row;
+			justify-content: space-between;
+
+			&-text {
+				width: 55%;
+				
+				&--right {
+					text-align: right;
+				}
+			}
+
+			&-img {
+				width: 40%;
+
+				&--right {
+					order: 1;
+				}
+			}
+		}
+
+		&__img {
+			margin-bottom: 0;
+			max-height: 300px;
+		}
+	}
+}
+
+@media (min-width: 768px) {
+	.white-block {
 		height: 50px;
 		width: 45%;
 	}
@@ -195,9 +248,15 @@ body {
 			font-size: 1.6rem;
 		}
 	}
+
+	.dreams {
+		&__text {
+			font-size: 1.8rem;
+		}
+	}
 }
 
-@media(min-width: 992px) {
+@media (min-width: 992px) {
 	.burger-btn {
 		top: 50px;
 		right: 50px;
@@ -205,11 +264,36 @@ body {
 
 	.header {
 		background-image: $blue-gradient, url('../img/palm-3172367_1920.jpg');
-		
+
 		&__heading {
 			font-size: 10rem;
 		}
 	}
 
-	
+	.nav {
+		&__item {
+			font-size: 4.8rem;
+		}
+	}
+
+	.dreams {
+		&__box {
+			margin: 5em 0;
+
+			&-text {
+				display: flex;
+				flex-direction: column;
+				justify-content: flex-end;
+				margin-bottom: 2.5em;
+			}
+		}
+
+		&__title {
+			font-size: 3.6rem;
+		}
+
+		&__text {
+			font-size: 2.2rem;
+		}
+	}
 }
